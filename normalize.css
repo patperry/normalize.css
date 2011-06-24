@@ -12,7 +12,6 @@ article,
 aside,
 details,
 figcaption,
-figure,
 footer,
 header,
 hgroup,
@@ -55,6 +54,7 @@ html {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
     -webkit-text-size-adjust: 100%; /* 4 */
     -ms-text-size-adjust: 100%; /* 4 */
+    line-height: 1.375; /* POP: base text size is 16px, line is 22px */
 }
 
 /*
@@ -62,7 +62,7 @@ html {
  */
 
 body {
-    margin: 0;
+    margin: 0 1.375em;
 }
 
 /* 
@@ -131,7 +131,8 @@ strong {
 }
 
 blockquote {
-    margin: 1em 40px;
+    margin: 1.375em 0 1.375em 2.75em; /* POP */
+    font-style: italic;
 }
 
 /*
@@ -156,13 +157,14 @@ mark {
  * en.wikipedia.org/wiki/User:Davidgothberg/Test59
  */
 
-pre,
+/* pre, */
 code,
 kbd,
 samp {
     font-family: monospace, monospace;
     _font-family: 'courier new', monospace;
-    font-size: 1em;
+    font-size: 0.875em; /* POP: 14px */
+    line-height: 1.5714; /* 22px */
 }
 
 /*
@@ -170,9 +172,13 @@ samp {
  */
 
 pre {
+    font-family: sans-serif;
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
+    padding: 0.916em 1.375em; /* POP */
+    margin: 0.5em 1.375em; /* POP */
+    /* background-color: #eee; */
 }
 
 /*
@@ -219,6 +225,62 @@ sub {
     bottom: -0.25em;
 }
 
+/* =============================================================================
+   Headings (POP)
+   ========================================================================== */
+
+
+h1 {
+    font-size: 2.0em; /* 32px */
+    line-height: 1.375; /* 44 / 32 */
+    margin: 0.6875em 0; /* 22 / 32 */
+    text-align: center;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 1.25em; /* 20px */
+    line-height: 1.1; /* 22 / 20  */
+    margin: 1.65em 0 0.55em;
+}
+
+h3 {
+    font-size: 1.125em; /* 18px */
+    line-height: 1.222; /* 22 / 18 */
+    margin: 1.833em 0 0.611em;
+}
+
+h4, h5, h6 {
+  font-size: 1.0em; /* 16px */
+  line-height: 1.375; /* 22 / 16 */
+  margin: 2.0625em 0 0.6875em;
+}
+
+hr {
+    border: 0;
+    border-top: 0.0625em solid;
+    margin: 1.3177em 2.75em 1.375em;
+}
+
+/* =============================================================================
+   Paragraphs
+   ========================================================================== */
+
+p {
+    margin: 0;
+}
+
+p + p {
+    text-indent: 1.375em;
+}
+
+header p + p,
+footer p + p,
+aside p + p,
+fieldset p + p {
+    text-indent: 0;
+}
+
 
 /* =============================================================================
    Lists
@@ -226,16 +288,29 @@ sub {
 
 ul,
 ol {
-    margin: 1em 0;
-    padding: 0 0 0 40px;
+    padding: 0 0 0 1.375em;
+    margin: 1.375em 0 1.375em 1.375em;  /* 24px 0 24px 24px; */
 }
 
-dd {
-    margin: 0 0 0 40px;
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+    margin: 0;
 }
+
+ol       { list-style-type: decimal; }
+ol ol    { list-style-type: lower-alpha; }
+ol ol ol { list-style-type: lower-roman; }
+
+dl      { margin: 1.375em 0; }
+dt      { font-weight: bold; }
+dd      { margin-left: 2.75em; }
+
 
 nav ul,
 nav ol {
+    margin: 0;
     list-style: none;
 }
 
@@ -265,7 +340,7 @@ svg:not(:root) {
 
 
 /* =============================================================================
-   Figures
+   Figures & Tables
    ========================================================================== */
 
 /*
@@ -273,7 +348,37 @@ svg:not(:root) {
  */
 
 figure {
-    margin: 0;
+    display: table;
+    margin: 1.375em auto; /* 22px */
+}
+
+caption,
+figcaption {
+    display: table-caption;
+    caption-side: bottom;
+    text-align: center;
+    font-style: italic; /* POP */
+}
+
+table {
+    border-spacing: 0;
+    margin: 1.26em auto; /* 22px */
+    border-top: 0.125em solid; /* 2px */
+    border-bottom: 0.125em solid;
+}
+
+th, td { padding: 0 0.5em; }
+
+th {
+    line-height: 1.32;
+    border-bottom: 0.0625em solid; /* 1px */
+}
+
+tbody th, tfoot th {
+    line-height: 1.375;
+    font-weight: normal;
+    border: 0;
+    text-align: left;
 }
 
 
@@ -294,8 +399,8 @@ form {
  */
 
 fieldset {
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+    margin: 0 0.125em 1.375em;
+    padding: 0.35em 1.125em 0.75em;
 }
 
 /*
@@ -403,11 +508,3 @@ textarea {
    Tables
    ========================================================================== */
 
-/* 
- * Remove most spacing between table cells
- */
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
