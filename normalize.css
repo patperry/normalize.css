@@ -12,6 +12,7 @@ article,
 aside,
 details,
 figcaption,
+figure,
 footer,
 header,
 hgroup,
@@ -172,7 +173,7 @@ samp {
  */
 
 pre {
-    font-family: sans-serif;
+    font-family: inherit;
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -257,6 +258,11 @@ h4, h5, h6 {
 }
 
 hr {
+    border: 0.0625em solid;
+    margin: 0.659em 0;
+}
+
+article hr {
     border: 0;
     border-top: 0.0625em solid;
     margin: 1.3177em 2.75em 1.375em;
@@ -266,21 +272,13 @@ hr {
    Paragraphs
    ========================================================================== */
 
-p {
+article p {
     margin: 0;
 }
 
-p + p {
+article p + p {
     text-indent: 1.375em;
 }
-
-header p + p,
-footer p + p,
-aside p + p,
-fieldset p + p {
-    text-indent: 0;
-}
-
 
 /* =============================================================================
    Lists
@@ -348,33 +346,50 @@ svg:not(:root) {
  */
 
 figure {
+    margin: 0;
+}
+
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+article figure {
     display: table;
     margin: 1.375em auto; /* 22px */
 }
 
-caption,
-figcaption {
+article caption,
+article figcaption {
     display: table-caption;
     caption-side: bottom;
     text-align: center;
     font-style: italic; /* POP */
 }
 
-table {
+article table {
     border-spacing: 0;
     margin: 1.26em auto; /* 22px */
     border-top: 0.125em solid; /* 2px */
     border-bottom: 0.125em solid;
 }
 
-th, td { padding: 0 0.5em; }
+article th,
+article td {
+    padding: 0 0.5em;
+}
 
-th {
+article th {
     line-height: 1.32;
     border-bottom: 0.0625em solid; /* 1px */
 }
 
-tbody th, tfoot th {
+article tbody th,
+article tfoot th {
     line-height: 1.375;
     font-weight: normal;
     border: 0;
@@ -505,6 +520,9 @@ textarea {
 
 
 /* =============================================================================
-   Tables
+   Fonts
    ========================================================================== */
 
+article {
+    font-family: 'Sabon LT Std', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', serif;
+}
