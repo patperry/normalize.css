@@ -63,7 +63,7 @@ html {
  */
 
 body {
-    margin: 0 1.375em;
+    margin: 0;
 }
 
 /* 
@@ -78,6 +78,19 @@ textarea {
     font-family: sans-serif;
 }
 
+/*
+ * 1. "The 66-character line (counting both letters and spaces) is widely regarded
+ *     as ideal"
+ *    http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.2/
+ *    Assume ~0.5ems/char.
+ */
+article {
+    font-family: 'Sabon LT Std', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', serif;
+    width: 33.0em; /* 1 */
+    margin: 0 auto;
+    padding: 1.375em;
+    text-align: justify;
+}
 
 /* =============================================================================
    Links
@@ -533,11 +546,3 @@ textarea {
     vertical-align: top; /* 2 */
 }
 
-
-/* =============================================================================
-   Fonts
-   ========================================================================== */
-
-article {
-    font-family: 'Sabon LT Std', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', serif;
-}
