@@ -257,6 +257,15 @@ h4, h5, h6 {
   margin: 2.0625em 0 0.6875em;
 }
 
+hgroup {
+    margin: 1.375em 0;
+}
+
+hgroup h1 + h2 {
+    margin: -1.1em 0 1.1em;
+    text-align: center;
+}
+
 hr {
     border: 0.0625em solid;
     margin: 0.659em 0;
