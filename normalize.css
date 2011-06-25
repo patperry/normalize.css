@@ -75,7 +75,7 @@ button,
 input,
 select,
 textarea {
-    font-family: sans-serif;
+    font-family: 'Helvetica Neue', arial, clean, sans-serif; /* POP */
 }
 
 /*
@@ -102,6 +102,20 @@ a {
 
 a:visited {
     color: #551a8b;
+}
+
+
+a,
+a:link,
+a:visited {
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: underline;
 }
 
 /*
@@ -192,7 +206,6 @@ pre {
     word-wrap: break-word;
     padding: 0.916em 1.375em; /* POP */
     margin: 0.5em 1.375em; /* POP */
-    /* background-color: #eee; */
 }
 
 /*
@@ -302,6 +315,10 @@ article p {
     margin: 0;
 }
 
+/* "In continuous text mark all paragraphs after the first with an indent of at
+ * least one en"
+ * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/
+ */
 article p + p {
     text-indent: 1.375em;
 }
@@ -313,7 +330,7 @@ article p + p {
 ul,
 ol {
     padding: 0 0 0 1.375em;
-    margin: 1.375em 0 1.375em 1.375em;  /* 24px 0 24px 24px; */
+    margin: 1.375em 0 1.375em 1.375em;  /* 22px 0 22px 22px; */
 }
 
 ol ol,
