@@ -30,7 +30,6 @@ ul {
     margin: 1.375em 0; /* POP */
 }
 
-
 /*
  * Corrects inline-block display not defined in IE6/7/8/9 & FF3
  * Known limitation: IE6 will not apply style for 'audio[controls]'
@@ -76,17 +75,6 @@ body {
     margin: 0;
 }
 
-/* 
- * Addresses font-family inconsistency between 'textarea' and other form elements.
- */
-
-body,
-button,
-input,
-select,
-textarea {
-    font-family: 'Helvetica Neue', arial, clean, sans-serif; /* POP */
-}
 
 /* POP:
  *
@@ -95,8 +83,7 @@ textarea {
  *    http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.2/
  *    Assume ~0.5ems/char.
  */
-article {
-    font-family: 'Sabon LT Std', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', serif;
+article, .article {
     width: 33.0em; /* 1 */
     text-align: justify;
     margin-left: auto;
@@ -190,19 +177,6 @@ mark {
     color: #000;
 }
 
-/*
- * Corrects font family set oddly in IE6, S5, Chrome
- * en.wikipedia.org/wiki/User:Davidgothberg/Test59
- */
-
-code,
-kbd,
-samp {
-    font-family: monospace, monospace;
-    _font-family: 'courier new', monospace;
-    font-size: 0.875em; /* POP: 14px */
-    /* line-height: 1.5714; /* POP: 22px */
-}
 
 /*
  * Improves readability of pre-formatted text in all browsers
@@ -242,7 +216,7 @@ q:after {
     content: none;
 }
 
-small {
+small, .small {
     font-size: 75%;
 }
 
@@ -403,7 +377,7 @@ figure {
     border-collapse: collapse;
     border-spacing: 0;
     display: table;
-    margin-left: auto; /* 22px */
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -417,24 +391,23 @@ figcaption {
 
 article table {
     border-collapse: separate;
-    border-spacing: 0;
-    margin: 1.26em auto; /* 22px */
+    margin: 1.26em auto; /* 18px */
     border-top: 0.125em solid; /* 2px */
     border-bottom: 0.125em solid;
 }
 
-article th,
-article td {
+th,
+td {
     padding: 0 0.5em;
 }
 
-article th {
+th {
     line-height: 1.32; /* POP: make space for border */
     border-bottom: 0.0625em solid; /* 1px */
 }
 
-article tbody th,
-article tfoot th {
+tbody th,
+tfoot th {
     /* line-height: 1.375; */
     font-weight: normal;
     border: 0;
@@ -570,3 +543,46 @@ textarea {
     vertical-align: top; /* 2 */
 }
 
+
+/* =============================================================================
+   Fonts
+   ========================================================================== */
+
+.fixed {
+    font-family: monospace, monospace;
+    _font-family: 'courier new', monospace;
+    font-size: 0.875em;
+}
+
+.sans {
+    font-family: 'Helvetica Neue', arial, clean, sans-serif;
+}
+
+.serif {
+    font-family: 'Sabon LT Std', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', serif;
+}
+
+/* 
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: 'Helvetica Neue', arial, clean, sans-serif; /* POP */
+}
+
+/*
+ * Corrects font family set oddly in IE6, S5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    _font-family: 'courier new', monospace;
+    font-size: 0.875em; /* POP: 14px */
+}
