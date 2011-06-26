@@ -8,26 +8,17 @@
  * Corrects block display not defined in IE6/7/8/9 & FF3
  */
 
-address,
 article,
 aside,
-blockquote,
 details,
-dl,
-fieldset,
-figure,
+figcaption,
+figure
 footer,
 header,
 hgroup,
 nav,
-ol,
-p,
-pre,
-section,
-table,
-ul {
+section {
     display: block;
-    margin: 1.375em 0; /* POP */
 }
 
 /*
@@ -56,15 +47,17 @@ video {
  *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
  * 4. Prevents iOS text size adjust after orientation change, without disabling user zoom
  *    www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/
+ * 5. POP: "Choose a basic leading that suits the typeface, text and measure"
+ *    http://webtypography.net/Rhythm_and_Proportion/Vertical_Motion/2.2.1/
+ *    Base text size is 16px, line is 22px (1.375em)
  */
-
 html {
     font-size: 100%; /* 1 */
     overflow-y: scroll; /* 2 */
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
     -webkit-text-size-adjust: 100%; /* 4 */
     -ms-text-size-adjust: 100%; /* 4 */
-    line-height: 138%; /* POP: base text size is 16px, line is 22px */
+    line-height: 138%; /* 5 */
 }
 
 /*
@@ -76,19 +69,21 @@ body {
 }
 
 
-/* POP:
- *
- * 1. "The 66-character line (counting both letters and spaces) is widely regarded
- *     as ideal"
- *    http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.2/
- *    Assume ~0.5ems/char.
- */
-article, .article {
-    width: 33.0em; /* 1 */
-    text-align: justify;
-    margin-left: auto;
-    margin-right: auto;
+address,
+blockquote,
+dl,
+fieldset,
+ol,
+p,
+pre,
+ul {
+    margin: 1.375em 0; /* POP */
 }
+
+p {
+    padding: 0;
+}
+
 
 /* =============================================================================
    Links
@@ -189,14 +184,6 @@ pre {
     word-wrap: break-word;
 }
 
-/* "Indent or center verse quotations"
- * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.4/
- */
-article blockquote,
-article pre {
-    padding-left: 2.75em; /* POP */
-}
-
 /*
  * 1. Addresses CSS quotes not supported in IE6/7
  * 2. Addresses quote property not supported in S4
@@ -245,14 +232,17 @@ sub {
    Headings (POP)
    ========================================================================== */
 
-/* For these to look right, an element placed after an h1-h6 should have a
+/* "Add and delete vertical space in measured intervals"
+ * http://webtypography.net/Rhythm_and_Proportion/Vertical_Motion/2.2.2/
+ *
+ * For these to look right, an element placed after an h1-h6 should have a
  * top margin of 22px (1.375em).
  */
 
 h1, .h1 {
     font-size: 2.0em; /* 32px */
     line-height: 1.375; /* 44 / 32 */
-    margin: -0.6875em 0; /* -0.6875em;  22 / 32 */
+    margin: 0 0 -0.6875em; /* -0.6875em;  22 / 32 */
     padding: 0.6875em 0;
     text-align: center;
     font-weight: normal;
@@ -288,24 +278,7 @@ hr {
     margin: 0.659em 0;
 }
 
-article hr {
-    border: 0;
-    border-top: 0.0625em solid;
-    margin: 1.3177em 2.75em 1.375em;
-}
 
-/* =============================================================================
-   Paragraphs
-   ========================================================================== */
-
-/* "In continuous text mark all paragraphs after the first with an indent of at
- * least one en"
- * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/
- */
-article p + p {
-    margin-top: -1.375em;
-    text-indent: 1.375em;
-}
 
 /* =============================================================================
    Lists
@@ -389,12 +362,6 @@ figcaption {
     font-style: italic; /* POP */
 }
 
-article table {
-    border-collapse: separate;
-    margin: 1.26em auto; /* 18px */
-    border-top: 0.125em solid; /* 2px */
-    border-bottom: 0.125em solid;
-}
 
 th,
 td {
@@ -542,6 +509,58 @@ textarea {
     overflow: auto; /* 1 */
     vertical-align: top; /* 2 */
 }
+
+
+/* =============================================================================
+   Articles (POP)
+   ========================================================================== */
+
+/* 1. "The 66-character line (counting both letters and spaces) is widely regarded
+ *     as ideal"
+ *    http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.2/
+ *    Assume ~0.5ems/char.
+ */
+article, .article {
+    width: 33.0em; /* 1 */
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* "In continuous text mark all paragraphs after the first with an indent of at
+ * least one en"
+ * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/
+ */
+article p + p {
+    margin-top: -1.375em;
+    text-indent: 1.375em;
+}
+
+
+/* "Indent or center verse quotations"
+ * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.4/
+ */
+article blockquote,
+article pre {
+    padding-left: 2.75em;
+}
+
+/* Narrow hr */
+article hr {
+    border: 0;
+    border-top: 0.0625em solid;     /* 1px */
+    margin: 1.3177em 2.75em 1.375em; /* 21px 44px 22 px */
+}
+
+/* Fancy tables */
+article table {
+    border-collapse: separate;
+    margin: 1.26em auto; /* 18px */
+    border-top: 0.125em solid; /* 2px */
+    border-bottom: 0.125em solid;
+}
+
 
 
 /* =============================================================================
