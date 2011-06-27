@@ -11,8 +11,8 @@
 article,
 aside,
 details,
-figcaption,
-figure
+/* figcaption, *//* POP: set display below */
+/* figure, *//* POP: ditto */
 footer,
 header,
 hgroup,
@@ -35,6 +35,7 @@ video {
 }
 
 
+
 /* =============================================================================
    Base
    ========================================================================== */
@@ -51,14 +52,17 @@ video {
  *    http://webtypography.net/Rhythm_and_Proportion/Vertical_Motion/2.2.1/
  *    Base text size is 16px, line is 22px (1.375em)
  */
+
 html {
     font-size: 100%; /* 1 */
     overflow-y: scroll; /* 2 */
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* 3 */
     -webkit-text-size-adjust: 100%; /* 4 */
     -ms-text-size-adjust: 100%; /* 4 */
-    line-height: 138%; /* 5 */
+    line-height: 1.375em; /* 5 */
 }
+
+
 
 /*
  * Addresses margins handled incorrectly in IE6/7
@@ -68,22 +72,41 @@ body {
     margin: 0;
 }
 
+/* 
+ * Addresses font-family inconsistency between 'textarea' and other form elements.
+ */
 
+body,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/*
+ * POP: consistent margins
+ */
 address,
 blockquote,
 dl,
+figure,
 fieldset,
+hgroup,
 ol,
 p,
 pre,
+table,
 ul {
-    margin: 1.375em 0; /* POP */
+    margin: 0 0 1.375em;
 }
 
+/*
+ * POP: remove default padding
+ */
 p {
     padding: 0;
 }
-
 
 /* =============================================================================
    Links
@@ -153,6 +176,7 @@ strong {
 
 blockquote {
     font-style: italic;
+    margin-left: 2.75em;
 }
 
 /*
@@ -172,16 +196,34 @@ mark {
     color: #000;
 }
 
+/*
+ * 1. Corrects font family set oddly in IE6, S5, Chrome
+ *    en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ * 2. POP: Fixes font size at 14px and line-height at 22px
+ */
+
+/* pre, *//* POP */
+code,
+kbd,
+samp,
+.fixed {
+    font-family: monospace, monospace; /* 1 */
+    _font-family: 'courier new', monospace; /* 1 */
+     font-size: 0.875em; /* 2 */
+     line-height: 1.5714; /* 2 */
+
+}
 
 /*
- * Improves readability of pre-formatted text in all browsers
+ * 1. Improves readability of pre-formatted text in all browsers
+ * 2. POP: don't force pre to use a fixed-width font
  */
 
 pre {
-    font-family: inherit; /* POP */
     white-space: pre;
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-family: inherit; /* POP */
 }
 
 /*
@@ -203,7 +245,8 @@ q:after {
     content: none;
 }
 
-small, .small {
+small,
+.small {
     font-size: 75%;
 }
 
@@ -228,82 +271,7 @@ sub {
     bottom: -0.25em;
 }
 
-/* =============================================================================
-   Headings (POP)
-   ========================================================================== */
 
-/* "Add and delete vertical space in measured intervals"
- * http://webtypography.net/Rhythm_and_Proportion/Vertical_Motion/2.2.2/
- *
- * For these to look right, an element placed after an h1-h6 should have a
- * top margin of 22px (1.375em).
- */
-
-h1, .h1 {
-    font-size: 2.0em; /* 32px */
-    line-height: 1.375; /* 44 / 32 */
-    /* margin: -0.6875em 0;  22 / 32 */
-    padding: 0.6875em 0;
-    margin: 0;
-    text-align: center;
-    font-weight: normal;
-    background-color: red;
-}
-
-h2, .h2 {
-    font-size: 1.25em; /* 20px */
-    /* margin: -1.1em 0; */
-    padding: 0.55em 0;
-    margin: 0.55em 0 0;
-    background-color: red;
-}
-
-h3, .h3 {
-    font-size: 1.125em; /* 18px */
-    /* margin: -1.222em 0; */
-    padding: 1.222em 0 0.611em;
-    margin: 0.611em 0 0;
-    background-color: red;
-}
-
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-    font-size: 1.0em; /* 16px */
-    padding: 0.6875em 0;
-    margin: 1.375em 0 0;
-    background-color: red;
-}
-
-hgroup {
-    padding: 1.375em 0;
-}
-
-hgroup h1,
-hgroup h2,
-hgroup h3,
-hgroup h4,
-hgroup h5,
-hgroup h6 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: red;
-}
-
-hr {
-    border: 0;
-    border-top: 0.0625em solid;     /* 1px */
-    margin: 0 0 1.3177em; /* 0 0 21px */
-}
-
-/* =============================================================================
-   Paragraphs
-   ========================================================================== */
-
-p {
-    margin: 0;
-}
 
 /* =============================================================================
    Lists
@@ -311,35 +279,34 @@ p {
 
 ul,
 ol {
-    padding-left: 1.375em;
-    margin-left: 1.375em;
+    /* margin: 1.375em 0; *//* POP: margins defined above */
+    padding: 0 0 0 2.75em;
+}
+
+dt {
+    font-weight: bold; /* POP */
+}
+
+dd {
+    margin: 0 0 0 2.75em;
+}
+
+nav ul,
+nav ol {
+    list-style: none;
 }
 
 ol ol,
 ol ul,
 ul ol,
 ul ul {
-    margin: 0;
-}
-
-ol       { list-style-type: decimal; }
-ol ol    { list-style-type: lower-alpha; }
-ol ol ol { list-style-type: lower-roman; }
-
-dt {
-    font-weight: bold; /* POP */
-}
-dd {
-    padding-left: 2.75em; /* POP */
-    margin-left: 0;
+    margin: 0; /* POP */
 }
 
 
-nav ul,
-nav ol {
-    margin: 0;
-    list-style: none;
-}
+ol       { list-style-type: decimal; } /* POP */
+ol ol    { list-style-type: lower-alpha; } /* POP */
+ol ol ol { list-style-type: lower-roman; } /* POP */
 
 
 /* =============================================================================
@@ -370,41 +337,79 @@ svg:not(:root) {
    Figures & Tables
    ========================================================================== */
 
+/*
+ * 1. Addresses margin not present in IE6/7/8/9, S5, O11
+ * 2. POP: Make figures behave like tables.
+ */
+
+figure {
+    /*margin: 0; *//* 1 *//* POP: margins defined above */
+    display: table; /* 2 */
+}
+
+figcaption {
+    display: table-caption; /* POP */
+}
+
+/* 
+ * Remove most spacing between table cells
+ */
+
+table {
+    /* border-collapse: collapse; *//* POP */
+    border-spacing: 0;
+}
+
+/*
+ * POP: center figures and tables
+ */
+
 table,
 figure {
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: table;
     margin-left: auto;
     margin-right: auto;
 }
 
-caption,
-figcaption {
-    display: table-caption;
-    caption-side: bottom;
-    text-align: center;
-    font-style: italic; /* POP */
-}
-
-
-th,
-td {
-    padding: 0 0.5em;
-}
-
-th {
-    line-height: 1.32; /* POP: make space for border */
+/*
+ * POP: Fancy tables
+ */
+thead th {
+    border-top: 0.135em solid; /* 2px */
     border-bottom: 0.0625em solid; /* 1px */
+    line-height: 1.1875; /* 19px */
+}
+
+/*
+ * POP: Fancy tables, cont'd.
+ */
+
+tbody tr:last-child td,
+tbody tr:last-child th {
+     border-bottom: 0.135em solid; /* 2px */
+     line-height: 1.25; /* 20px */
 }
 
 tbody th,
 tfoot th {
-    /* line-height: 1.375; */
-    font-weight: normal;
-    border: 0;
-    text-align: left;
+    text-align: left; /* POP */
 }
+
+th,
+td {
+    padding: 0 0.5em; /* POP */
+}
+
+/*
+ * POP: put captions in italic centered at the bottom of the figure or table
+ */
+
+caption,
+figcaption {
+    caption-side: bottom;
+    text-align: center;
+    font-style: italic;
+}
+
 
 
 /* =============================================================================
@@ -424,9 +429,11 @@ form {
  */
 
 fieldset {
-    margin-left: 0.125em;
-    margin-right: 0.125em;
-    padding: 0.4375em 1.125em 0.8125em;
+    /* margin: 0 2px; *//* POP */
+    margin-left: 0.125em; /* POP */
+    margin-right: 0.125em; /* POP */
+    /* padding: 0.35em 0.625em 0.75em; */
+    padding: 0.4375em 1.125em 0.8125em; /* POP */
 }
 
 /*
@@ -437,25 +444,23 @@ fieldset {
 legend {
     border: 0; /* 1 */
     *margin-left: -7px; /* 2 */
-    padding: 0.6875em 0.125em;
-    margin-left: 1.375em;
-}
-
-legend + p {
-    margin-top: 0;
+    padding: 0.6875em 0.125em; /* POP */
 }
 
 /*
+ * 1. Corrects font size not being inherited in all browsers
  * 2. Addresses margins set differently in IE6/7, F3/4, S5, Chrome
  * 3. Improves appearance and consistency in all browsers
+ * 4. POP: fix line-height.
  */
 
 button,
 input,
 select,
 textarea {
-    font-size: 0.9375em; /* 15px */
-    padding: 0 0.067em 0.067em 0.067em; /* 0 1px 1px 1px; */
+    /* font-size: 100%; *//* 1 *//* POP */
+    font-size: 0.9375em; /* POP: 15px */
+    padding: 0 0.067em 0.067em 0.067em; /* 0 1px 1px 1px */ /* 4 */ 
     margin: 0; /* 2 */
     vertical-align: baseline; /* 3 */
     *vertical-align: middle; /* 3 */
@@ -468,7 +473,8 @@ textarea {
 
 button,
 input {
-    line-height: 1.067; /* 1 */
+    /*line-height: normal; *//* 1 *//* POP */
+    line-height: 1.067; /* POP */
     *overflow: visible;  /* 2 */
 }
 
@@ -537,66 +543,105 @@ textarea {
 
 
 /* =============================================================================
+   Headings (POP)
+   ========================================================================== */
+
+/* "Add and delete vertical space in measured intervals"
+ * http://webtypography.net/Rhythm_and_Proportion/Vertical_Motion/2.2.2/
+ *
+ * For these to look right, an element placed after an h1-h6 should have a
+ * top margin of 22px (1.375em).
+ */
+
+h1, .h1 {
+    font-size: 2.0em; /* 32px */
+    line-height: 1.375; /* 44 / 32 */
+    padding: 0.6875em 0 0;
+    margin: 0 0 0.6875em;
+    text-align: center;
+    font-weight: normal;
+}
+
+h2, .h2 {
+    font-size: 1.25em; /* 20px */
+    padding: 1.65em 0 0.55em;
+    margin: 0;
+}
+
+h3, .h3 {
+    font-size: 1.125em; /* 18px */
+    padding: 1.833em 0 0.611em;
+    margin: 0;
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-size: 1.0em; /* 16px */
+    padding: 2.0625em 0 0.6875em;
+    margin: 0;
+}
+
+hgroup h1,
+hgroup h2,
+hgroup h3,
+hgroup h4,
+hgroup h5,
+hgroup h6 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*
+ * 1. POP: fix line-height
+ * 2. POP: add horizontal margin
+ */
+
+hr {
+    border: 0; /* 1 */
+    border-top: 0.0625em solid; /* 1px *//* 1 */
+    padding: 0 0 1.3177em; /* 0 0 21px *//* 1 */
+    margin: 1.375em 2.75em 0; /* 2 */
+}
+
+
+/* =============================================================================
    Articles (POP)
    ========================================================================== */
 
-/* 1. "The 66-character line (counting both letters and spaces) is widely regarded
- *     as ideal"
- *    http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.2/
- *    Assume ~0.5ems/char.
+/* "The 66-character line (counting both letters and spaces) is widely regarded
+ *  as ideal"
+ * http://webtypography.net/Rhythm_and_Proportion/Horizontal_Motion/2.1.2/
+ * Assume ~0.5ems/char.
  */
-article, .article {
+article {
     width: 33.0em; /* 1 */
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
 }
 
-
 /* "In continuous text mark all paragraphs after the first with an indent of at
  * least one en"
  * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/
  */
-article p + p,
-.article p + p {
+article p + p {
     text-indent: 1.375em;
+    margin-top: -1.375em;
 }
 
-
-/* "Indent or center verse quotations"
+/* POP: "Indent or center verse quotations"
  * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.4/
  */
-article blockquote,
 article pre {
-    padding-left: 2.75em;
-}
-
-/* Narrow hr */
-article hr,
-.article hr {
     margin-left: 2.75em;
-    margin-right: 2.75em;
 }
-
-/* Fancy tables */
-article table {
-    border-collapse: separate;
-    margin: 1.26em auto; /* 18px */
-    border-top: 0.125em solid; /* 2px */
-    border-bottom: 0.125em solid;
-}
-
 
 
 /* =============================================================================
    Fonts
    ========================================================================== */
-
-.fixed {
-    font-family: monospace, monospace;
-    _font-family: 'courier new', monospace;
-    font-size: 0.875em;
-}
 
 .sans {
     font-family: 'Helvetica Neue', arial, clean, sans-serif;
@@ -604,29 +649,4 @@ article table {
 
 .serif {
     font-family: 'Sabon LT Std', 'Hoefler Text', 'Palatino Linotype', 'Book Antiqua', serif;
-}
-
-/* 
- * Addresses font-family inconsistency between 'textarea' and other form elements.
- */
-
-body,
-button,
-input,
-select,
-textarea {
-    font-family: 'Helvetica Neue', arial, clean, sans-serif; /* POP */
-}
-
-/*
- * Corrects font family set oddly in IE6, S5, Chrome
- * en.wikipedia.org/wiki/User:Davidgothberg/Test59
- */
-
-code,
-kbd,
-samp {
-    font-family: monospace, monospace;
-    _font-family: 'courier new', monospace;
-    font-size: 0.875em; /* POP: 14px */
 }
