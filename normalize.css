@@ -242,43 +242,68 @@ sub {
 h1, .h1 {
     font-size: 2.0em; /* 32px */
     line-height: 1.375; /* 44 / 32 */
-    margin: 0 0 -0.6875em; /* -0.6875em;  22 / 32 */
+    /* margin: -0.6875em 0;  22 / 32 */
     padding: 0.6875em 0;
+    margin: 0;
     text-align: center;
     font-weight: normal;
+    background-color: red;
 }
 
 h2, .h2 {
     font-size: 1.25em; /* 20px */
-    margin: -1.1em 0;
-    padding: 1.65em 0 0.55em;
+    /* margin: -1.1em 0; */
+    padding: 0.55em 0;
+    margin: 0.55em 0 0;
+    background-color: red;
 }
 
 h3, .h3 {
     font-size: 1.125em; /* 18px */
-    margin: -1.222em 0;
-    padding: 1.833em 0 0.611em;
+    /* margin: -1.222em 0; */
+    padding: 1.222em 0 0.611em;
+    margin: 0.611em 0 0;
+    background-color: red;
 }
 
 h4, .h4,
 h5, .h5,
 h6, .h6 {
     font-size: 1.0em; /* 16px */
-    margin: -1.375em 0;
-    padding: 2.0625em 0 0.6875em;
+    padding: 0.6875em 0;
+    margin: 1.375em 0 0;
+    background-color: red;
 }
 
-hgroup h1 + h2 {
-    padding: 0 0 1.10em;
+hgroup {
+    padding: 1.375em 0;
+}
+
+hgroup h1,
+hgroup h2,
+hgroup h3,
+hgroup h4,
+hgroup h5,
+hgroup h6 {
+    margin: 0;
+    padding: 0;
     text-align: center;
+    background-color: red;
 }
 
 hr {
-    border: 0.0625em solid;
-    margin: 0.659em 0;
+    border: 0;
+    border-top: 0.0625em solid;     /* 1px */
+    margin: 0 0 1.3177em; /* 0 0 21px */
 }
 
+/* =============================================================================
+   Paragraphs
+   ========================================================================== */
 
+p {
+    margin: 0;
+}
 
 /* =============================================================================
    Lists
@@ -532,8 +557,8 @@ article, .article {
  * least one en"
  * http://webtypography.net/Rhythm_and_Proportion/Blocks_and_Paragraphs/2.3.2/
  */
-article p + p {
-    margin-top: -1.375em;
+article p + p,
+.article p + p {
     text-indent: 1.375em;
 }
 
@@ -547,10 +572,10 @@ article pre {
 }
 
 /* Narrow hr */
-article hr {
-    border: 0;
-    border-top: 0.0625em solid;     /* 1px */
-    margin: 1.3177em 2.75em 1.375em; /* 21px 44px 22 px */
+article hr,
+.article hr {
+    margin-left: 2.75em;
+    margin-right: 2.75em;
 }
 
 /* Fancy tables */
