@@ -96,7 +96,6 @@ hgroup,
 ol,
 p,
 pre,
-table,
 ul {
     margin: 0 0 1.375em;
 }
@@ -373,30 +372,44 @@ figure {
 /*
  * POP: Fancy tables
  */
-thead th {
-    border-top: 0.135em solid; /* 2px */
+table {
+    border-top: 0.0625em solid; /* 1px */
     border-bottom: 0.0625em solid; /* 1px */
-    line-height: 1.1875; /* 19px */
+    margin-top: -0.0625em; /* -1px */
+    margin-bottom: 1.3125em /* 21px */
+}
+
+thead tr:first-child td,
+thead tr:first-child th,
+tbody tr:first-child td,
+tbody tr:first-child th {
+    border-top: 0.0625em solid; /* 1px */
+    line-height: 1.3125; /* 21px */
+}
+
+tbody tr:last-child td,
+tbody tr:last-child th,
+tfoot tr:last-child td,
+tfoot tr:last-child th {
+    border-bottom: 0.0625em solid; /* 1px */
+    line-height: 1.3125; /* 21px */
 }
 
 /*
  * POP: Fancy tables, cont'd.
  */
 
-tbody tr:last-child td,
-tbody tr:last-child th {
-     border-bottom: 0.135em solid; /* 2px */
-     line-height: 1.25; /* 20px */
-}
-
-tbody th,
-tfoot th {
-    text-align: left; /* POP */
-}
-
 th,
 td {
     padding: 0 0.5em; /* POP */
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: left;
 }
 
 /*
