@@ -375,8 +375,7 @@ figure {
 table {
     border-top: 0.0625em solid; /* 1px */
     border-bottom: 0.0625em solid; /* 1px */
-    margin-top: -0.0625em; /* -1px */
-    margin-bottom: 1.3125em /* 21px */
+    margin-bottom: 1.25em;
 }
 
 thead tr:first-child td,
@@ -614,8 +613,8 @@ hgroup h6 {
 hr {
     border: 0; /* 1 */
     border-top: 0.0625em solid; /* 1px *//* 1 */
-    padding: 0 0 1.3177em; /* 0 0 21px *//* 1 */
-    margin: 1.375em 2.75em 0; /* 2 */
+    padding: 1.3177em 0 0 ; /* 21px 0 0 *//* 1 */
+    margin: 0 2.75em 1.375em; /* 2 */
 }
 
 
