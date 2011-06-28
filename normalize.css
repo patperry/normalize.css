@@ -628,7 +628,7 @@ hr {
  * Assume ~0.5ems/char.
  */
 article {
-    width: 33.0em; /* 1 */
+    max-width: 33.0em; /* 1 */
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
