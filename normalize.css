@@ -576,13 +576,13 @@ h1, .h1 {
 
 h2, .h2 {
     font-size: 1.25em; /* 20px */
-    padding: 1.65em 0 0.55em;
+    padding: 0.55em 0 0.55em;
     margin: 0;
 }
 
 h3, .h3 {
     font-size: 1.125em; /* 18px */
-    padding: 1.833em 0 0.611em;
+    padding: 0.611em 0 0.611em;
     margin: 0;
 }
 
