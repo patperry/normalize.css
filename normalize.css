@@ -15,7 +15,6 @@ details,
 /* figure, *//* POP: ditto */
 footer,
 header,
-hgroup,
 nav,
 section {
     display: block;
@@ -92,7 +91,6 @@ blockquote,
 dl,
 figure,
 fieldset,
-hgroup,
 ol,
 p,
 pre,
@@ -594,16 +592,6 @@ h6, .h6 {
     margin: 0;
 }
 
-hgroup h1,
-hgroup h2,
-hgroup h3,
-hgroup h4,
-hgroup h5,
-hgroup h6 {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
 
 /*
  * 1. POP: fix line-height
