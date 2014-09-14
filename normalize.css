@@ -175,9 +175,24 @@ h3 + p,
 h4 + p,
 h5 + p,
 h6 + p {
-    margin-top: 0;
+  margin-top: 0;
 }
 
+dl, ol, p, pre, ul {
+  margin: 1.375em 0;
+}
+
+dd {
+  margin-left: 2.75em;
+}
+
+ol, ul {
+  padding-left: 2.75em;
+}
+
+ol ul, ul ol, ul ul, ol ol {
+  margin: 0;
+}
 
 /**
  * Address styling not present in IE 8/9.
@@ -187,28 +202,6 @@ mark {
   background: #ff0;
   color: #000;
 }
-
-dl, ol, p, pre, ul {
-    margin: 1.375em 0;
-}
-
-dd {
-    margin-left: 2.75em;
-}
-
-blockquote, figure {
-    margin: 1.375em 2.75em;
-}
-
-ol, ul {
-    padding-left: 2.75em;
-}
-
-ol ul, ul ol, ul ul, ol ol {
-    margin: 0;
-}
-
-
 
 /**
  * Address inconsistent and variable font size in all browsers.
@@ -276,6 +269,7 @@ hr {
 
 pre {
   overflow: auto;
+  font-family: inherit; /* POP: don't force monospace */
 }
 
 /**
@@ -284,10 +278,13 @@ pre {
 
 code,
 kbd,
-pre,
 samp {
   font-family: monospace, monospace;
   font-size: 0.875em; /* 14px */
+}
+
+blockquote, figure {
+  margin: 1.375em 2.75em;
 }
 
 /* Forms
@@ -480,5 +477,5 @@ table {
 
 td,
 th {
-    padding: 0 0.5em;
+  padding: 0 0.5em;
 }
