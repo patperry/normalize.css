@@ -144,12 +144,14 @@ h1 {
 
 h2 {
   font-size: 1.5em; /* 24px */
-  margin: 0.9166667em 0; /* 22/24 */
+  /* margin: 0.9166667em 0; 22/24 */
+  margin: 1.375em 0 0.4583333em;
 }
 
 h3 {
   font-size: 1.1875em; /* 19px */
-  margin: 1.157895em 0; /* 22/19 */
+  /* margin: 1.157895em 0; 22/19 */
+  margin: 1.736842em 0 0.5789474em;
 }
 
 h4 {
@@ -165,6 +167,15 @@ h5 {
 h6 {
   font-size: 0.6875em; /* 11px */
   margin: 2em 0; /* 22/11 */
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+    margin-top: 0;
 }
 
 
